@@ -32,7 +32,7 @@ features_test = at1.extractAllFeatures()
 print("Test song processed.")
 
 # run the model for the test song
-mtest1 = model_testing.ModelTester(features_test, model)
+mtest1 = model_testing.ModelTester(features_test, model, at1.title)
 taste1 = mtest1.predictTaste()
 print("DONE! The overall prediction is: ",taste1)
 # print(mtest1.results) # see the actual predictions for each frame

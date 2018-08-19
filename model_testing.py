@@ -2,18 +2,24 @@ import sklearn
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from statistics import mode
+import shutil
 
 class ModelTester:
-    def __init__(self, features, model):
+    def __init__(self, features, model, song_title):
         self.results = model.predict(features)
+        self.taste = 'none'
+        self.title = song_title
 
     def predictTaste(self):
-        taste = 'dk'
         try:
-            taste = mode(self.results)
+            self.taste = mode(self.results)
         except StatisticsError: # if the number of 'liked' predictions equals the number of 'disliked' predictions,
-            taste = 'disliked' # tag the whole song as disliked (due to the big discord among predictions)
+            self.taste = 'disliked' # tag the whole song as disliked (due to the big discord among predictions)
 
-        return taste
+        return self.taste
+
+    def verifyPrediction(self, true_taste):
+        # reuse the testing data as training data for the next model
+        shutil.move("test/" + self.title, true_taste + "/" + self.title)
 
     

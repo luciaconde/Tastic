@@ -1,8 +1,6 @@
 import librosa
 import numpy as np
-
-import model_training
-import model_testing
+from pathlib import Path
 
 ### AudioProcessor ###
 
@@ -50,8 +48,9 @@ class AudioTester:
         self.winsize_f = int(self.defaultsr*self.winsize_t) # size of window (in samples)
 
         # load the file name of the song to test
-        test_file = librosa.util.find_files('like/', ext=['mp3'])
+        test_file = librosa.util.find_files('test/', ext=['mp3'])
         # load and save the audio
+        self.title = Path(test_file[0]).name
         self.test_audio, current_sr = librosa.load(test_file[0])
         # store the size (in samples) of the audio file
         self.n_samples = len(self.test_audio)
