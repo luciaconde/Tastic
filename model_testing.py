@@ -14,7 +14,7 @@ class ModelTester:
         try:
             self.taste = mode(self.results)
         except StatisticsError: # if the number of 'liked' predictions equals the number of 'disliked' predictions,
-            self.taste = 'disliked' # tag the whole song as disliked (due to the big discord among predictions)
+            self.taste = 'dislike' # tag the whole song as disliked (due to the big discord among predictions)
 
         return self.taste
 

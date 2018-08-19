@@ -23,8 +23,8 @@ class ModelTrainer:
             num_windows_disliked += 1
 
         # create arrays with the corresponding class labels
-        labels_liked = ['liked']*num_windows_liked
-        labels_disliked = ['disliked']*num_windows_disliked
+        labels_liked = ['like']*num_windows_liked
+        labels_disliked = ['dislike']*num_windows_disliked
         return labels_liked, labels_disliked
 
     def fitRRForest(self):
