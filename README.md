@@ -22,7 +22,7 @@ When selecting '1. New Model', Tastic will prompt the user to enter several link
 
 After training the model, Tastic will ask for an extra YouTube link to a song for which it will try to predict the music taste of the user. It will display the prediction, and right after it will ask the user to confirm if they liked that song or not. This verification step is performed so as to reuse this data for training depending on the labelling done by the user.
 
-The option '2. Continue model' can be selected when 'liked' and 'disliked' song data has already previously been downloaded. This option allows the user to continue feeding test songs to the model and see how it performs with additional data. It is important to mention that the implemented random forest does not perform online learning (see section 'To-Do list' below), that is, when continuing using a model the previous model is not actually reused but rather a new model is trained with the current downloaded data.
+The option '2. Continue model' can be selected when 'liked' and 'disliked' song data has already previously been downloaded. This option allows the user to continue feeding test songs to the model and see how it performs with additional data. It is important to mention that the implemented random forest does not perform online learning (see [To-Do list](https://github.com/luciaconde/Tastic/blob/master/README.md#to-do-list)), that is, when continuing using a model the previous model is not actually reused but rather a new model is trained with the current downloaded data.
 
 The option '3. Delete all data' allows the user to delete all the 'liked', 'disliked' and 'test' audio files in order to start a completely new model (for instance, for a different user).
 
