@@ -14,17 +14,20 @@ Tastic currently supports a command-line interface only. To start it, run tastic
 ---------- TASTIC: a machine learning-based music taste predictor ----------
 1. New model
 2. Continue model
-3. Delete all data
-4. Exit
+3. Test current model
+4. Delete all data
+5. Exit
 ----------------------------------------------------------------------------
 ```
 When selecting '1. New Model', Tastic will prompt the user to enter several links to YouTube videos of songs they like or dislike. Note that, in order to reduce the effects of overfitting, the chosen YouTube videos should preferably reproduce just the music pieces and not additional scenes with e.g. silence or speech, as it often occurs in official music videos.
 
 After training the model, Tastic will ask for an extra YouTube link to a song for which it will try to predict the music taste of the user. It will display the prediction, and right after it will ask the user to confirm if they liked that song or not. This verification step is performed so as to reuse this data for training depending on the labelling done by the user.
 
-The option '2. Continue model' can be selected when 'liked' and 'disliked' song data has already previously been downloaded. This option allows the user to continue feeding test songs to the model and see how it performs with additional data. It is important to mention that the implemented random forest does not perform online learning (see [To-Do list](https://github.com/luciaconde/Tastic/blob/master/README.md#to-do-list)), that is, when continuing using a model the previous model is not actually reused but rather a new model is trained with the current downloaded data.
+The option '2. Continue model' can be selected when 'liked' and 'disliked' song data has already previously been downloaded. This option allows the user to re-train the model (using the original training data plus the songs used for testing until then) and continue feeding test songs to the model, to see how it performs with additional data. It is important to mention that the implemented random forest does not perform online learning (see [To-Do list](https://github.com/luciaconde/Tastic/blob/master/README.md#to-do-list)), that is, when continuing using a model the previous model is not actually reused but rather a new model is trained with the current downloaded data.
 
-The option '3. Delete all data' allows the user to delete all the 'liked', 'disliked' and 'test' audio files in order to start a completely new model (for instance, for a different user).
+If the user wants to keep using the current (already trained) model, that can be done by selecting '3. Test current model', which will feed test songs to the model without re-training it.
+
+The option '4. Delete all data' allows the user to delete all the 'liked', 'disliked' and 'test' audio files in order to start a completely new model (for instance, for a different user).
 
 ### Dependencies
 
@@ -35,6 +38,7 @@ The following third-party libraries -and hence their corresponding dependencies-
 * [scikit-learn](https://github.com/scikit-learn/scikit-learn) - Used for generating the random regression forest 
 
 ## To-Do list
+* Display the percentage of likeness/dislikeness of the prediction (based on the individual predictions for the analyzed audio windows)
 * Implement simple desktop GUI
 * Implement online learning (for current machine learning model or another one potentially more suitable for it)
 * Implement additional machine/deep learning technique
