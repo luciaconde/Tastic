@@ -76,8 +76,15 @@ class options():
             self.testModel()
 
     def testCurrentModel(self):
-        if self.verifyExistingData():
+        if self.verifyExistingData() and self.verifyExistingModel():
             self.testModel()
+
+    def verifyExistingModel(self):
+        if self.currentModel == None:
+            print("No model has been built yet!")
+            return False
+        else:
+            return True
 
     def verifyExistingData(self):
         files_like = librosa.util.find_files('tastic_data/like/', ext=['mp3'])
@@ -85,9 +92,6 @@ class options():
 
         if not files_like or not files_dislike:
             print("There are not enough stored songs to continue building a model!")
-            return False
-        elif self.currentModel == None:
-            print("No model has been built yet!")
             return False
         else:
             return True
