@@ -27,7 +27,6 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 ```
 Tastic currently supports a command-line interface only. To start it, open a Python terminal (within the folder where you want your songs data to be stored) and execute the following lines:
 ```
->>> import tasticgenie
 >>> from tasticgenie import tastic_cli
 >>> tastic_cli.app()
 ```
