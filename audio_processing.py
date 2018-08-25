@@ -12,8 +12,8 @@ class AudioProcessor:
         self.winsize_f = int(self.defaultsr*self.winsize_t) # size of window (in samples)
 
         # load all song files
-        files_like = librosa.util.find_files('like/', ext=['mp3'])
-        files_dislike = librosa.util.find_files('dislike/', ext=['mp3'])
+        files_like = librosa.util.find_files('tastic_data/like/', ext=['mp3'])
+        files_dislike = librosa.util.find_files('tastic_data/dislike/', ext=['mp3'])
         
         self.liked_songs_audio = []
         self.disliked_songs_audio = []
@@ -48,7 +48,7 @@ class AudioTester:
         self.winsize_f = int(self.defaultsr*self.winsize_t) # size of window (in samples)
 
         # load the file name of the song to test
-        test_file = librosa.util.find_files('test/', ext=['mp3'])
+        test_file = librosa.util.find_files('tastic_data/test/', ext=['mp3'])
         # load and save the audio
         self.title = Path(test_file[0]).name
         self.test_audio, current_sr = librosa.load(test_file[0])

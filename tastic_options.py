@@ -8,7 +8,7 @@ import os
 
 class options():
     def __init__(self, sr_train, sr_test, winsize_train, winsize_test):
-        currentModel = None
+        self.currentModel = None
         # parameters for training data
         # sr = sampling rate
         # winsize = size of window (in seconds) for the division in frames of the audio signal
@@ -73,22 +73,29 @@ class options():
     def continueModel(self):
         if self.verifyExistingData():
             self.createModel()
-        self.testModel()
+            self.testModel()
+
+    def testCurrentModel(self):
+        if self.verifyExistingData():
+            self.testModel()
 
     def verifyExistingData(self):
-        files_like = librosa.util.find_files('like/', ext=['mp3'])
-        files_dislike = librosa.util.find_files('dislike/', ext=['mp3'])
+        files_like = librosa.util.find_files('tastic_data/like/', ext=['mp3'])
+        files_dislike = librosa.util.find_files('tastic_data/dislike/', ext=['mp3'])
 
         if not files_like or not files_dislike:
             print("There are not enough stored songs to continue building a model!")
+            return False
+        elif self.currentModel == None:
+            print("No model has been built yet!")
             return False
         else:
             return True
 
     def deleteAllData(self):
-        files_like = librosa.util.find_files('like/', ext=['mp3'])
-        files_dislike = librosa.util.find_files('dislike/', ext=['mp3'])
-        files_test = librosa.util.find_files('test/', ext=['mp3'])
+        files_like = librosa.util.find_files('tastic_data/like/', ext=['mp3'])
+        files_dislike = librosa.util.find_files('tastic_data/dislike/', ext=['mp3'])
+        files_test = librosa.util.find_files('tastic_data/test/', ext=['mp3'])
 
         files_all = files_like + files_dislike + files_test
     

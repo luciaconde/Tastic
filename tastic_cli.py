@@ -26,7 +26,7 @@ def app():
             opt.continueModel()
         elif option == 3:
             print(5 * "-", "Testing model...", 5 * "-")
-            opt.testModel()
+            opt.testCurrentModel()
         elif option == 4:
             print(5 * "-", "Deleting all data...", 5 * "-")
             opt.deleteAllData()

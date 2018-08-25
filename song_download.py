@@ -4,7 +4,7 @@ import youtube_dl
 
 # definition of audio characteristics for the songs to be downloaded
 song_liked = {
-    'outtmpl': 'like/%(title)s.%(ext)s',
+    'outtmpl': 'tastic_data/like/%(title)s.%(ext)s',
     'format': 'bestaudio[asr=44100]/best',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
@@ -13,7 +13,7 @@ song_liked = {
     }],
 }
 song_disliked = {
-    'outtmpl': 'dislike/%(title)s.%(ext)s',
+    'outtmpl': 'tastic_data/dislike/%(title)s.%(ext)s',
     'format': 'bestaudio/best',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
@@ -23,7 +23,7 @@ song_disliked = {
 }
 
 song_test = {
-    'outtmpl': 'test/%(title)s.%(ext)s',
+    'outtmpl': 'tastic_data/test/%(title)s.%(ext)s',
     'format': 'bestaudio/best',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',

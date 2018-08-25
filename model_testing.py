@@ -20,6 +20,6 @@ class ModelTester:
 
     def verifyPrediction(self, true_taste):
         # reuse the testing data as training data for the next model
-        shutil.move("test/" + self.title, true_taste + "/" + self.title)
+        shutil.move("tastic_data/test/" + self.title, "tastic_data/" + true_taste + "/" + self.title)
 
     
